@@ -58,9 +58,18 @@
 		<div id="masthead">
 
 			<div id="branding">
+				<div id="blog-title"><span><a href="<?php bloginfo('url') ?>/" title="<?php bloginfo('name') ?>" rel="home"><?php bloginfo('name')?></a></span></div>
+
+				<?php if (is_home() || is_front_page()): ?>
+					<h1 id="blog-description"><?php bloginfo('description'); ?></h1>
+				<?php else: ?>
+					<div id="blog-description"><?php bloginfo('description'); ?></div>
+				<?php endif; ?>
 			</div><!-- #branding -->
  
 			<div id="access">
+				<div class="skip-link"><a href="#content" title="<?php _e('Skip to content', 'lessonpie'); ?>"><?php _e('Skip to content', 'lessonpie'); ?></a></div>
+				<?php wp_page_menu('sort_column=menu_order'); ?>
 			</div><!-- #access -->
 
 		</div><!-- #masthead -->
